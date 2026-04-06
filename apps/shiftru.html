@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shiftru - ZJP</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>&#x1F4C5;</text></svg>">
+  <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .app-page { max-width: 700px; margin: 0 auto; padding: 80px 20px 40px; }
+    .app-header { text-align: center; margin-bottom: 32px; }
+    .app-header .app-icon { width: 96px; height: 96px; font-size: 32px; margin: 0 auto 16px; color: var(--neon-pink); border-color: var(--neon-pink); }
+    .app-header h1 { color: var(--neon-yellow); font-size: 20px; text-shadow: 0 0 10px var(--neon-yellow); }
+    .app-header .tagline { color: var(--neon-green); font-size: 10px; margin-top: 8px; }
+    .feature-list { list-style: none; padding: 0; }
+    .feature-list li { padding: 8px 0; font-size: 10px; }
+    .feature-list li::before { content: '> '; color: var(--text-accent); }
+    .back-link { display: inline-block; margin-bottom: 24px; color: var(--text-accent); text-decoration: none; font-size: 10px; }
+    .back-link:hover { text-shadow: 0 0 8px var(--text-accent); }
+  </style>
+</head>
+<body>
+  <div id="stars-bg"></div>
+  <div class="app-page">
+    <a href="../index.html#apps" class="back-link">&lt; Back to Home</a>
+    <div class="app-header">
+      <div class="app-icon pixel-icon">&#x2630;</div>
+      <h1>Shiftru</h1>
+      <p class="tagline">Shift Management & Salary Calculator</p>
+    </div>
+
+    <div class="nes-container is-dark with-title">
+      <p class="title">About</p>
+      <p style="font-size:10px; line-height:2;">
+        Shiftru is the ultimate shift management app for part-time workers in Japan. Easily manage your work schedule, automatically calculate your salary, and stay aware of the 1.03 million yen tax threshold. Features Live Activities on your lock screen, Siri Shortcuts, and calendar sync.
+      </p>
+    </div>
+    <br>
+
+    <div class="nes-container is-dark with-title">
+      <p class="title">Features</p>
+      <ul class="feature-list">
+        <li>Shift scheduling with calendar sync</li>
+        <li>Automatic salary calculation</li>
+        <li>103-man yen threshold tracking</li>
+        <li>Live Activities & Dynamic Island</li>
+        <li>Siri Shortcuts integration</li>
+        <li>Multiple theme & app icon options</li>
+        <li>iCloud data sync</li>
+      </ul>
+    </div>
+    <br>
+
+    <div style="text-align:center;">
+      <a href="#" class="nes-btn is-primary">Download on App Store</a>
+      <br><br>
+      <a href="../privacy/shiftru.html" class="nes-btn btn-sm">Privacy Policy</a>
+      <a href="mailto:support@shiftru.app" class="nes-btn btn-sm">Support</a>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kakeibo - ZJP</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>&#x1F4B0;</text></svg>">
+  <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .app-page { max-width: 700px; margin: 0 auto; padding: 80px 20px 40px; }
+    .app-header { text-align: center; margin-bottom: 32px; }
+    .app-header .app-icon { width: 96px; height: 96px; font-size: 36px; margin: 0 auto 16px; color: var(--neon-green); border-color: var(--neon-green); }
+    .app-header h1 { color: var(--neon-yellow); font-size: 20px; text-shadow: 0 0 10px var(--neon-yellow); }
+    .app-header .tagline { color: var(--neon-green); font-size: 10px; margin-top: 8px; }
+    .feature-list { list-style: none; padding: 0; }
+    .feature-list li { padding: 8px 0; font-size: 10px; }
+    .feature-list li::before { content: '> '; color: var(--text-accent); }
+    .back-link { display: inline-block; margin-bottom: 24px; color: var(--text-accent); text-decoration: none; font-size: 10px; }
+    .back-link:hover { text-shadow: 0 0 8px var(--text-accent); }
+  </style>
+</head>
+<body>
+  <div id="stars-bg"></div>
+  <div class="app-page">
+    <a href="../index.html#apps" class="back-link">&lt; Back to Home</a>
+    <div class="app-header">
+      <div class="app-icon pixel-icon">&#x5186;</div>
+      <h1>Kakeibo</h1>
+      <p class="tagline">Smart Household Expense Tracker</p>
+    </div>
+
+    <div class="nes-container is-dark with-title">
+      <p class="title">About</p>
+      <p style="font-size:10px; line-height:2;">
+        Kakeibo is a personal finance management app inspired by the traditional Japanese household budgeting method. Track your daily expenses, scan receipts with your camera, and sync everything across your devices with iCloud.
+      </p>
+    </div>
+    <br>
+
+    <div class="nes-container is-dark with-title">
+      <p class="title">Features</p>
+      <ul class="feature-list">
+        <li>Camera-based receipt scanning</li>
+        <li>iCloud sync across all your devices</li>
+        <li>Home screen widget for quick expense view</li>
+        <li>Category-based expense tracking</li>
+        <li>Monthly budget reports and insights</li>
+      </ul>
+    </div>
+    <br>
+
+    <div style="text-align:center;">
+      <a href="#" class="nes-btn is-primary">Download on App Store</a>
+      <br><br>
+      <a href="../privacy/kakeibo.html" class="nes-btn btn-sm">Privacy Policy</a>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

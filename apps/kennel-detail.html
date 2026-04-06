@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ブリーダー手帳 - 機能紹介</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🐶</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --warm-bg: #faf6f0;
+      --warm-card: #ffffff;
+      --warm-brown: #8b6f47;
+      --warm-brown-light: #c4a882;
+      --warm-text: #4a3f35;
+      --warm-text-sub: #7d6e5f;
+      --warm-accent: #e8985e;
+      --warm-border: #e8ddd0;
+      --warm-shadow: rgba(139, 111, 71, 0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Zen Maru Gothic', 'Hiragino Maru Gothic Pro', sans-serif;
+      background: var(--warm-bg);
+      color: var(--warm-text);
+      font-size: 15px;
+      line-height: 1.9;
+      cursor: none;
+    }
+
+    /* ===== Custom Cursor ===== */
+    .cursor-dot {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      background: var(--warm-brown);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width 0.25s, height 0.25s, background 0.25s, box-shadow 0.25s, border 0.25s;
+      box-shadow: 0 0 6px rgba(139, 111, 71, 0.3);
+    }
+
+    .cursor-dot.hovering {
+      width: 48px;
+      height: 48px;
+      background: rgba(232, 152, 94, 0.1);
+      box-shadow: 0 0 20px rgba(232, 152, 94, 0.2);
+      backdrop-filter: blur(2px);
+      border: 1.5px solid rgba(232, 152, 94, 0.35);
+    }
+
+    .trail-particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9997;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: particle-fade 0.8s ease-out forwards;
+    }
+
+    @keyframes particle-fade {
+      0% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+    }
+
+    /* ===== Back Link ===== */
+    .back-link {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 100;
+      color: var(--warm-brown);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 500;
+      background: rgba(255,255,255,0.85);
+      padding: 8px 16px;
+      border-radius: 20px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 12px var(--warm-shadow);
+      transition: all 0.3s ease;
+    }
+
+    .back-link:hover {
+      background: #fff;
+      box-shadow: 0 4px 20px rgba(139, 111, 71, 0.15);
+    }
+
+    /* ===== Header ===== */
+    .page-header {
+      text-align: center;
+      padding: 80px 20px 48px;
+    }
+
+    .page-header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--warm-brown);
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+    }
+
+    .page-header .subtitle {
+      font-size: 13px;
+      color: var(--warm-text-sub);
+      letter-spacing: 0.15em;
+    }
+
+    /* ===== Content ===== */
+    .content {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+    }
+
+    .section-label {
+      text-align: center;
+      font-size: 11px;
+      color: var(--warm-brown-light);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--warm-brown);
+      margin-bottom: 36px;
+    }
+
+    .intro-text {
+      text-align: center;
+      font-size: 14px;
+      color: var(--warm-text-sub);
+      line-height: 2;
+      margin-bottom: 48px;
+    }
+
+    /* ===== Feature Cards ===== */
+    .feature-card {
+      background: var(--warm-card);
+      border-radius: 16px;
+      padding: 28px 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 16px var(--warm-shadow);
+      border: 1px solid var(--warm-border);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(139, 111, 71, 0.12);
+    }
+
+    .feature-card .card-icon { font-size: 28px; margin-bottom: 12px; }
+
+    .feature-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--warm-brown);
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      font-size: 13px;
+      color: var(--warm-text-sub);
+      line-height: 1.9;
+    }
+
+    .feature-card .tag-row { margin-top: 14px; display: flex; gap: 8px; flex-wrap: wrap; }
+
+    .tag {
+      display: inline-block;
+      padding: 3px 10px;
+      font-size: 11px;
+      border-radius: 12px;
+      background: #f5efe7;
+      color: var(--warm-brown);
+    }
+
+    .tag.green { background: #e8f5ec; color: #4a8c5e; }
+    .tag.pink { background: #fce8f0; color: #c46a8a; }
+    .tag.orange { background: #fef0e4; color: #c47a3a; }
+
+    /* ===== Divider ===== */
+    .paw-divider {
+      text-align: center;
+      padding: 32px 0;
+      font-size: 16px;
+      letter-spacing: 12px;
+      color: var(--warm-brown-light);
+      opacity: 0.4;
+    }
+
+    /* ===== CTA ===== */
+    .cta-section {
+      text-align: center;
+      padding: 48px 20px 72px;
+    }
+
+    .cta-section h2 {
+      font-size: 20px;
+      color: var(--warm-brown);
+      margin-bottom: 12px;
+    }
+
+    .cta-section p {
+      font-size: 13px;
+      color: var(--warm-text-sub);
+      margin-bottom: 28px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 14px 36px;
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: white;
+      background: var(--warm-brown);
+      border: none;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 16px rgba(139, 111, 71, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: #7a6240;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(139, 111, 71, 0.3);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      padding: 10px 24px;
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-size: 12px;
+      color: var(--warm-brown);
+      background: transparent;
+      border: 1.5px solid var(--warm-border);
+      border-radius: 20px;
+      text-decoration: none;
+      margin-top: 16px;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover { border-color: var(--warm-brown); }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      padding: 24px 20px;
+      font-size: 11px;
+      color: var(--warm-brown-light);
+      border-top: 1px solid var(--warm-border);
+    }
+
+    footer a { color: var(--warm-brown); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ===== Fade-in ===== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 600px) {
+      .page-header h1 { font-size: 22px; }
+      .section-title { font-size: 17px; }
+      .feature-card { padding: 22px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <a href="kennel.html" class="back-link">← 戻る</a>
+
+  <div class="page-header">
+    <h1>🐶 ブリーダー手帳</h1>
+    <p class="subtitle">大切な命を、もっとやさしく管理する</p>
+  </div>
+
+  <div class="content">
+    <p class="intro-text fade-up">
+      ブリーダー手帳は、日本のブリーダーさんのために作られた<br>
+      犬舎経営の総合管理アプリです。<br>
+      日々の業務をひとつのアプリでやさしくサポートします。
+    </p>
+  </div>
+
+  <div class="paw-divider">🐾 🐾 🐾</div>
+
+  <div class="content">
+    <p class="section-label">features</p>
+    <h2 class="section-title">主な機能</h2>
+
+    <div class="feature-card fade-up">
+      <div class="card-icon">📋</div>
+      <h3>わんちゃん管理</h3>
+      <p>基本情報・医療記録・お手入れ履歴・繁殖歴をタブ切替でかんたん管理。写真ギャラリーで成長を記録できます。</p>
+      <div class="tag-row">
+        <span class="tag">プロフィール</span>
+        <span class="tag green">健康管理</span>
+        <span class="tag pink">写真記録</span>
+      </div>
+    </div>
+
+    <div class="feature-card fade-up">
+      <div class="card-icon">🎙️</div>
+      <h3>AI音声メモ</h3>
+      <p>ワンタッチで音声入力。AIが自動でテキスト化するので、手がふさがっていても、お世話の記録をすぐに残せます。</p>
+      <div class="tag-row">
+        <span class="tag orange">音声認識</span>
+        <span class="tag">ワンタッチ</span>
+        <span class="tag green">AI変換</span>
+      </div>
+    </div>
+
+    <div class="feature-card fade-up">
+      <div class="card-icon">🏠</div>
+      <h3>繁殖室・犬舎管理</h3>
+      <p>繁殖室のスケジュール管理、子犬の体重トラッキング、スタッフのシフトカレンダーを一元管理。複数犬舎にも対応。</p>
+      <div class="tag-row">
+        <span class="tag">シフト管理</span>
+        <span class="tag pink">繁殖記録</span>
+        <span class="tag orange">マルチ犬舎</span>
+      </div>
+    </div>
+
+    <div class="feature-card fade-up">
+      <div class="card-icon">📊</div>
+      <h3>オーナーダッシュボード</h3>
+      <p>経営に必要な数字をひと目で確認。財務指標、犬舎の稼働状況、スタッフの勤務状況をまとめて表示。</p>
+      <div class="tag-row">
+        <span class="tag green">経営分析</span>
+        <span class="tag">レポート</span>
+      </div>
+    </div>
+
+    <div class="feature-card fade-up">
+      <div class="card-icon">📄</div>
+      <h3>法令対応・書類出力</h3>
+      <p>日本の動物愛護法に準拠した書類テンプレートを搭載。監査対応もスムーズに行えます。</p>
+      <div class="tag-row">
+        <span class="tag orange">コンプライアンス</span>
+        <span class="tag green">テンプレート</span>
+      </div>
+    </div>
+
+    <div class="feature-card fade-up">
+      <div class="card-icon">📶</div>
+      <h3>オフライン対応</h3>
+      <p>電波の弱い場所でも安心。オフラインでデータを記録し、接続が回復したら自動で同期します。</p>
+      <div class="tag-row">
+        <span class="tag">オフライン</span>
+        <span class="tag pink">自動同期</span>
+        <span class="tag green">iCloudバックアップ</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="paw-divider">🐾 🐾 🐾</div>
+
+  <section class="cta-section">
+    <h2>リリースをお楽しみに 🐕</h2>
+    <p>開発中です。先行アクセスのご希望はお気軽にご連絡ください。</p>
+    <a href="mailto:zjp@zjp73.com" class="btn-primary">お問い合わせ</a>
+    <br>
+    <a href="../privacy/kennel.html" class="btn-secondary">プライバシーポリシー</a>
+  </section>
+
+  <footer>
+    <p>© 2026 ZJP — <a href="../index.html">zjp73.com</a></p>
+  </footer>
+
+  <script>
+    /* ===== Custom Cursor ===== */
+    const dot = document.getElementById('cursorDot');
+    let mouseX = 0, mouseY = 0, dotX = 0, dotY = 0;
+
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      createParticle(mouseX, mouseY);
+    });
+
+    function animateDot() {
+      dotX += (mouseX - dotX) * 0.2;
+      dotY += (mouseY - dotY) * 0.2;
+      dot.style.left = dotX + 'px';
+      dot.style.top = dotY + 'px';
+      requestAnimationFrame(animateDot);
+    }
+    animateDot();
+
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => dot.classList.add('hovering'));
+      el.addEventListener('mouseleave', () => dot.classList.remove('hovering'));
+    });
+
+    /* ===== Trail Particles ===== */
+    const colors = ['#c4a882', '#e8985e', '#e8a0bf', '#7cb68e', '#8b6f47'];
+    let pc = 0;
+    function createParticle(x, y) {
+      pc++;
+      if (pc % 3 !== 0) return;
+      const p = document.createElement('div');
+      p.className = 'trail-particle';
+      const size = 3 + Math.random() * 5;
+      p.style.cssText = `left:${x + (Math.random()-0.5)*16}px;top:${y + (Math.random()-0.5)*16}px;width:${size}px;height:${size}px;background:${colors[Math.floor(Math.random()*colors.length)]};`;
+      document.body.appendChild(p);
+      setTimeout(() => p.remove(), 800);
+    }
+
+    /* ===== Scroll Animation ===== */
+    const obs = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.15 }
+    );
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>

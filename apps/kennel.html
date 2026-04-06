@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ブリーダー手帳 - Breeder Note</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🐶</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --warm-bg: #faf6f0;
+      --warm-brown: #8b6f47;
+      --warm-brown-light: #c4a882;
+      --warm-text: #4a3f35;
+      --warm-text-sub: #7d6e5f;
+      --warm-accent: #e8985e;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      font-family: 'Zen Maru Gothic', 'Hiragino Maru Gothic Pro', sans-serif;
+      background: #000;
+      color: var(--warm-text);
+      cursor: none;
+    }
+
+    /* ===== Custom Cursor ===== */
+    .cursor-dot {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width 0.25s, height 0.25s, background 0.25s, box-shadow 0.25s;
+      box-shadow: 0 0 6px rgba(255,255,255,0.4);
+      mix-blend-mode: difference;
+    }
+
+    /* Hover on clickable */
+    .cursor-dot.hovering {
+      width: 48px;
+      height: 48px;
+      background: rgba(232, 152, 94, 0.15);
+      box-shadow: 0 0 20px rgba(232, 152, 94, 0.3);
+      mix-blend-mode: normal;
+      backdrop-filter: blur(2px);
+      border: 1.5px solid rgba(232, 152, 94, 0.4);
+    }
+
+    /* ===== Trail Particles ===== */
+    .trail-particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9997;
+      border-radius: 50%;
+      opacity: 0.7;
+      transform: translate(-50%, -50%);
+      animation: particle-fade 0.8s ease-out forwards;
+    }
+
+    @keyframes particle-fade {
+      0% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+    }
+
+    /* ===== Fullscreen Video with Blur BG ===== */
+    .video-fullscreen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .video-bg-blur {
+      position: absolute;
+      top: -5%; left: -5%;
+      width: 110%;
+      height: 110%;
+      object-fit: cover;
+      filter: blur(40px) brightness(0.5) saturate(1.2);
+      transform: scale(1.1);
+    }
+
+    .video-main {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      z-index: 1;
+    }
+
+    /* ===== Overlay Content ===== */
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding-bottom: 10vh;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,0) 55%,
+        rgba(0,0,0,0.3) 75%,
+        rgba(0,0,0,0.7) 100%
+      );
+    }
+
+    .overlay h1 {
+      font-size: 30px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.12em;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+    }
+
+    .overlay .subtitle {
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.2em;
+      margin-bottom: 32px;
+      text-shadow: 0 1px 10px rgba(0,0,0,0.5);
+    }
+
+    .enter-btn {
+      display: inline-block;
+      padding: 14px 48px;
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      background: rgba(139, 111, 71, 0.8);
+      border: 1.5px solid rgba(255,255,255,0.3);
+      border-radius: 40px;
+      text-decoration: none;
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+      letter-spacing: 0.1em;
+    }
+
+    .enter-btn:hover {
+      background: rgba(139, 111, 71, 1);
+      border-color: rgba(255,255,255,0.6);
+      transform: scale(1.03);
+      box-shadow: 0 8px 32px rgba(139, 111, 71, 0.4);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 16px;
+      font-size: 10px;
+      color: rgba(255,255,255,0.6);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 16px;
+      margin-bottom: 20px;
+      letter-spacing: 0.15em;
+    }
+
+    /* ===== Back Link ===== */
+    .back-link {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 100;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 12px;
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-weight: 500;
+      background: rgba(0,0,0,0.3);
+      padding: 8px 16px;
+      border-radius: 20px;
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: #fff;
+      background: rgba(0,0,0,0.5);
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 600px) {
+      .overlay h1 { font-size: 22px; }
+      .overlay .subtitle { font-size: 11px; }
+      .enter-btn { padding: 12px 36px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <a href="../index.html" class="back-link">← zjp73.com</a>
+
+  <!-- Fullscreen Video with Blur Background -->
+  <div class="video-fullscreen">
+    <video class="video-bg-blur" autoplay loop muted playsinline>
+      <source src="../images/hero-dog.mp4" type="video/mp4">
+    </video>
+    <video class="video-main" autoplay loop muted playsinline>
+      <source src="../images/hero-dog.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- Overlay -->
+  <div class="overlay">
+    <span class="badge">まもなくリリース</span>
+    <h1>ブリーダー手帳</h1>
+    <p class="subtitle">大切な命を、もっとやさしく管理する</p>
+    <a href="kennel-detail.html" class="enter-btn">アプリ詳細を見る →</a>
+  </div>
+
+  <script>
+    /* ===== Custom Cursor ===== */
+    const dot = document.getElementById('cursorDot');
+    let mouseX = 0, mouseY = 0;
+    let dotX = 0, dotY = 0;
+
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      createParticle(mouseX, mouseY);
+    });
+
+    // Smooth dot follow
+    function animateDot() {
+      dotX += (mouseX - dotX) * 0.2;
+      dotY += (mouseY - dotY) * 0.2;
+      dot.style.left = dotX + 'px';
+      dot.style.top = dotY + 'px';
+      requestAnimationFrame(animateDot);
+    }
+    animateDot();
+
+    // Hover state for clickable elements
+    document.querySelectorAll('a, button, .enter-btn').forEach(el => {
+      el.addEventListener('mouseenter', () => dot.classList.add('hovering'));
+      el.addEventListener('mouseleave', () => dot.classList.remove('hovering'));
+    });
+
+    /* ===== Trail Particles ===== */
+    const colors = ['#c4a882', '#e8985e', '#e8a0bf', '#7cb68e', '#8b6f47'];
+    let particleCount = 0;
+
+    function createParticle(x, y) {
+      particleCount++;
+      if (particleCount % 3 !== 0) return; // throttle: every 3rd move
+
+      const p = document.createElement('div');
+      p.className = 'trail-particle';
+      const size = 3 + Math.random() * 5;
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      const offsetX = (Math.random() - 0.5) * 16;
+      const offsetY = (Math.random() - 0.5) * 16;
+
+      p.style.cssText = `
+        left: ${x + offsetX}px;
+        top: ${y + offsetY}px;
+        width: ${size}px;
+        height: ${size}px;
+        background: ${color};
+      `;
+      document.body.appendChild(p);
+
+      setTimeout(() => p.remove(), 800);
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NumberFall - ZJP</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>&#x1F3AE;</text></svg>">
+  <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .app-page { max-width: 700px; margin: 0 auto; padding: 80px 20px 40px; }
+    .app-header { text-align: center; margin-bottom: 32px; }
+    .app-header .app-icon { width: 96px; height: 96px; font-size: 32px; margin: 0 auto 16px; }
+    .app-header h1 { color: var(--neon-yellow); font-size: 24px; text-shadow: 0 0 10px var(--neon-yellow); }
+    .app-header .tagline { color: var(--neon-green); font-size: 10px; margin-top: 8px; }
+    .feature-list { list-style: none; padding: 0; }
+    .feature-list li { padding: 8px 0; font-size: 10px; }
+    .feature-list li::before { content: '> '; color: var(--text-accent); }
+    .screenshot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin: 16px 0; }
+    .screenshot-placeholder { background: var(--bg-primary); border: 2px dashed var(--pixel-border); height: 240px; display: flex; align-items: center; justify-content: center; font-size: 8px; color: #666; }
+    .back-link { display: inline-block; margin-bottom: 24px; color: var(--text-accent); text-decoration: none; font-size: 10px; }
+    .back-link:hover { text-shadow: 0 0 8px var(--text-accent); }
+    .store-btn { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; }
+  </style>
+</head>
+<body>
+  <div id="stars-bg"></div>
+
+  <div class="app-page">
+    <a href="../index.html#apps" class="back-link">&lt; <span data-i18n="back">Back to Home</span></a>
+
+    <div class="app-header">
+      <div class="app-icon pixel-icon">NF</div>
+      <h1>NumberFall</h1>
+      <p class="tagline" data-i18n="nf.tagline">Roguelike Number Puzzle x RPG</p>
+    </div>
+
+    <div class="nes-container is-dark with-title">
+      <p class="title" data-i18n="nf.aboutTitle">About</p>
+      <p style="font-size:10px; line-height:2;" data-i18n="nf.about">
+        NumberFall is a unique roguelike number puzzle game that blends 2048-style mechanics with RPG character progression. Choose your character, unlock traits, and descend through procedurally generated floors of number challenges.
+      </p>
+    </div>
+    <br>
+
+    <div class="nes-container is-dark with-title">
+      <p class="title" data-i18n="nf.featuresTitle">Features</p>
+      <ul class="feature-list">
+        <li data-i18n="nf.f1">Roguelike progression with floor-based difficulty</li>
+        <li data-i18n="nf.f2">6 unique characters with distinct abilities</li>
+        <li data-i18n="nf.f3">110+ traits with quality tiers and synergies</li>
+        <li data-i18n="nf.f4">Trait Codex encyclopedia for collectors</li>
+        <li data-i18n="nf.f5">Pixel-perfect retro aesthetic</li>
+      </ul>
+    </div>
+    <br>
+
+    <div class="nes-container is-dark with-title">
+      <p class="title" data-i18n="nf.screenshotsTitle">Screenshots</p>
+      <div class="screenshot-grid">
+        <div class="screenshot-placeholder">Screenshot 1</div>
+        <div class="screenshot-placeholder">Screenshot 2</div>
+        <div class="screenshot-placeholder">Screenshot 3</div>
+      </div>
+    </div>
+    <br>
+
+    <div style="text-align:center;">
+      <a href="#" class="nes-btn is-primary store-btn" data-i18n="nf.download">Download on App Store</a>
+      <br><br>
+      <a href="../privacy/numberfall.html" class="nes-btn btn-sm" data-i18n="nf.privacyLink">Privacy Policy</a>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    const pageTrans = {
+      en: {
+        'back': 'Back to Home',
+        'nf.tagline': 'Roguelike Number Puzzle x RPG',
+        'nf.aboutTitle': 'About',
+        'nf.about': 'NumberFall is a unique roguelike number puzzle game that blends 2048-style mechanics with RPG character progression. Choose your character, unlock traits, and descend through procedurally generated floors of number challenges.',
+        'nf.featuresTitle': 'Features',
+        'nf.f1': 'Roguelike progression with floor-based difficulty',
+        'nf.f2': '6 unique characters with distinct abilities',
+        'nf.f3': '110+ traits with quality tiers and synergies',
+        'nf.f4': 'Trait Codex encyclopedia for collectors',
+        'nf.f5': 'Pixel-perfect retro aesthetic',
+        'nf.screenshotsTitle': 'Screenshots',
+        'nf.download': 'Download on App Store',
+        'nf.privacyLink': 'Privacy Policy',
+      },
+      zh: {
+        'back': '\u8fd4\u56de\u9996\u9875',
+        'nf.tagline': 'Roguelike\u6570\u5b57\u89e3\u8c1c x RPG',
+        'nf.aboutTitle': '\u7b80\u4ecb',
+        'nf.about': 'NumberFall\u662f\u4e00\u6b3b\u72ec\u7279\u7684Roguelike\u6570\u5b57\u89e3\u8c1c\u6e38\u620f\uff0c\u5c06 2048 \u73a9\u6cd5\u4e0e RPG \u89d2\u8272\u6210\u957f\u878d\u5408\u3002\u9009\u62e9\u4f60\u7684\u89d2\u8272\uff0c\u89e3\u9501\u7279\u8d28\uff0c\u5728\u968f\u673a\u751f\u6210\u7684\u6570\u5b57\u5173\u5361\u4e2d\u4e0d\u65ad\u4e0b\u964d\u3002',
+        'nf.featuresTitle': '\u7279\u8272',
+        'nf.f1': 'Roguelike\u5c42\u7ea7\u5f0f\u96be\u5ea6\u9012\u8fdb',
+        'nf.f2': '6\u4e2a\u72ec\u7279\u89d2\u8272\uff0c\u5404\u6709\u4e13\u5c5e\u80fd\u529b',
+        'nf.f3': '110+\u7279\u8d28\uff0c\u54c1\u8d28\u5206\u7ea7\u4e0e\u534f\u540c\u7ec4\u5408',
+        'nf.f4': '\u7279\u8d28\u56fe\u9274\u767e\u79d1\uff0c\u6536\u96c6\u8981\u7d20\u6ee1\u8db3',
+        'nf.f5': '\u50cf\u7d20\u98ce\u590d\u53e4\u7f8e\u5b66',
+        'nf.screenshotsTitle': '\u622a\u56fe',
+        'nf.download': '\u5728 App Store \u4e0b\u8f7d',
+        'nf.privacyLink': '\u9690\u79c1\u653f\u7b56',
+      },
+      ja: {
+        'back': '\u30db\u30fc\u30e0\u306b\u623b\u308b',
+        'nf.tagline': '\u30ed\u30fc\u30b0\u30e9\u30a4\u30af\u6570\u5b57\u30d1\u30ba\u30eb x RPG',
+        'nf.aboutTitle': '\u6982\u8981',
+        'nf.about': 'NumberFall\u306f2048\u98a8\u306e\u30e1\u30ab\u30cb\u30af\u30b9\u3068RPG\u30ad\u30e3\u30e9\u30af\u30bf\u30fc\u6210\u9577\u3092\u878d\u5408\u3057\u305f\u30e6\u30cb\u30fc\u30af\u306a\u30ed\u30fc\u30b0\u30e9\u30a4\u30af\u6570\u5b57\u30d1\u30ba\u30eb\u30b2\u30fc\u30e0\u3067\u3059\u3002\u30ad\u30e3\u30e9\u30af\u30bf\u30fc\u3092\u9078\u3073\u3001\u7279\u6027\u3092\u89e3\u9664\u3057\u3001\u30e9\u30f3\u30c0\u30e0\u751f\u6210\u3055\u308c\u305f\u6570\u5b57\u306e\u30d5\u30ed\u30a2\u3092\u964d\u308a\u3066\u3044\u304d\u307e\u3057\u3087\u3046\u3002',
+        'nf.featuresTitle': '\u7279\u5fb4',
+        'nf.f1': '\u30d5\u30ed\u30a2\u30d9\u30fc\u30b9\u306e\u96e3\u6613\u5ea6\u9032\u884c',
+        'nf.f2': '6\u4eba\u306e\u30e6\u30cb\u30fc\u30af\u30ad\u30e3\u30e9\u30af\u30bf\u30fc',
+        'nf.f3': '110\u4ee5\u4e0a\u306e\u7279\u6027\u3068\u30b7\u30ca\u30b8\u30fc',
+        'nf.f4': '\u7279\u6027\u56f3\u9451\u30b3\u30ec\u30af\u30b7\u30e7\u30f3',
+        'nf.f5': '\u30d4\u30af\u30bb\u30eb\u30d1\u30fc\u30d5\u30a7\u30af\u30c8\u306a\u30ec\u30c8\u30ed\u7f8e\u5b66',
+        'nf.screenshotsTitle': '\u30b9\u30af\u30ea\u30fc\u30f3\u30b7\u30e7\u30c3\u30c8',
+        'nf.download': 'App Store\u3067\u30c0\u30a6\u30f3\u30ed\u30fc\u30c9',
+        'nf.privacyLink': '\u30d7\u30e9\u30a4\u30d0\u30b7\u30fc\u30dd\u30ea\u30b7\u30fc',
+      },
+    };
+    // Merge page translations into main
+    Object.keys(pageTrans).forEach(lang => {
+      Object.assign(translations[lang], pageTrans[lang]);
+    });
+    const savedLang = localStorage.getItem('zjp-lang') || 'en';
+    setLanguage(savedLang);
+  </script>
+</body>
+</html>

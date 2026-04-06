@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Breeder Note</title>
+  <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .privacy-page { max-width: 700px; margin: 0 auto; padding: 80px 20px 40px; }
+    .privacy-page h1 { color: var(--neon-yellow); font-size: 18px; text-align: center; margin-bottom: 24px; }
+    .privacy-page h2 { color: var(--text-accent); font-size: 12px; margin: 24px 0 12px; }
+    .privacy-page p, .privacy-page li { font-size: 9px; line-height: 2.2; color: #ccc; }
+    .privacy-page ul { padding-left: 20px; list-style: none; }
+    .privacy-page ul li::before { content: '> '; color: var(--neon-green); }
+    .back-link { display: inline-block; margin-bottom: 24px; color: var(--text-accent); text-decoration: none; font-size: 10px; }
+    .back-link:hover { text-shadow: 0 0 8px var(--text-accent); }
+    .update-date { text-align: center; font-size: 8px; color: #888; margin-bottom: 24px; }
+  </style>
+</head>
+<body>
+  <div id="stars-bg"></div>
+  <div class="privacy-page">
+    <a href="../apps/kennel.html" class="back-link">&lt; Back to Breeder Note</a>
+    <h1>Privacy Policy - Breeder Note</h1>
+    <p class="update-date">Last updated: April 2026</p>
+    <div class="nes-container is-dark">
+
+      <h2>1. Introduction</h2>
+      <p>ZJP ("we", "our", "us") operates the Breeder Note mobile application. This Privacy Policy explains how we collect, use, and protect your information.</p>
+
+      <h2>2. Information We Collect</h2>
+      <ul>
+        <li>Kennel and dog profile data (stored locally and in Firebase/iCloud)</li>
+        <li>Voice recordings for transcription (processed via AI, not stored permanently)</li>
+        <li>Staff scheduling and operational data</li>
+        <li>Anonymous usage analytics and crash reports</li>
+      </ul>
+
+      <h2>3. Voice Data</h2>
+      <p>Voice-to-record features use AI transcription. Audio is processed in real-time and is not stored on our servers after transcription is complete.</p>
+
+      <h2>4. Data Storage</h2>
+      <ul>
+        <li>Data is stored locally on your device with offline-first architecture</li>
+        <li>Cloud sync via Firebase and/or iCloud when connected</li>
+        <li>Multi-tenant data is isolated per kennel organization</li>
+      </ul>
+
+      <h2>5. Third-Party Services</h2>
+      <ul>
+        <li>Firebase (authentication, database, storage)</li>
+        <li>Google AI (voice transcription)</li>
+        <li>Apple iCloud (backup)</li>
+      </ul>
+
+      <h2>6. Data Security</h2>
+      <p>We implement role-based access control. Admin and employee accounts have separate permission levels. All data in transit is encrypted.</p>
+
+      <h2>7. Children's Privacy</h2>
+      <p>This app is designed for professional kennel operators. We do not knowingly collect information from children under 13.</p>
+
+      <h2>8. Contact Us</h2>
+      <p>For privacy inquiries: <span style="color: var(--text-accent);">zjp@zjp73.com</span></p>
+
+    </div>
+  </div>
+  <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
