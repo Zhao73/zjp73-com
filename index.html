@@ -3,180 +3,154 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZJP - Pixel World</title>
-  <meta name="description" content="ZJP's personal website - iOS Developer & Creator">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>&#x1F47E;</text></svg>">
-  <!-- NES.css -->
-  <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet">
-  <!-- Press Start 2P Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <!-- Custom CSS -->
+  <title>ZJP - Creative Developer</title>
+  <meta name="description" content="ZJP's portfolio - iOS Developer & Creator based in Japan">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>&#x26A1;</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=Noto+Sans+JP:wght@300;400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- Stars Background -->
-  <div id="stars-bg"></div>
+  <!-- 3D Canvas -->
+  <canvas id="bg-canvas"></canvas>
 
   <!-- Language Switcher -->
   <div class="lang-switcher">
-    <button class="nes-btn is-primary lang-btn active" data-lang-btn="en">EN</button>
-    <button class="nes-btn lang-btn" data-lang-btn="zh">中</button>
-    <button class="nes-btn lang-btn" data-lang-btn="ja">JP</button>
+    <button class="lang-btn active" data-lang-btn="en">EN</button>
+    <button class="lang-btn" data-lang-btn="zh">中</button>
+    <button class="lang-btn" data-lang-btn="ja">JP</button>
   </div>
 
   <!-- Navigation -->
-  <nav class="pixel-nav">
-    <a href="#home" class="nav-link" data-i18n="nav.home">Home</a>
-    <a href="#about" class="nav-link" data-i18n="nav.about">About</a>
-    <a href="#apps" class="nav-link" data-i18n="nav.apps">Apps</a>
-    <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+  <nav class="nav">
+    <div class="nav-logo">ZJP</div>
+    <div class="nav-links">
+      <a href="#home" class="nav-link" data-i18n="nav.home">Home</a>
+      <a href="#about" class="nav-link" data-i18n="nav.about">About</a>
+      <a href="#apps" class="nav-link" data-i18n="nav.apps">Apps</a>
+      <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+    </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section id="home" class="section hero-section">
+  <!-- Hero -->
+  <section id="home" class="section hero">
     <div class="hero-content">
-      <div class="pixel-avatar" id="pixel-avatar">
-        <canvas id="avatar-canvas" width="96" height="96"></canvas>
+      <p class="hero-tag" data-i18n="hero.tag">CREATIVE DEVELOPER</p>
+      <h1 class="hero-title">
+        <span class="line">Hi, I'm</span>
+        <span class="line gradient-text">ZJP</span>
+      </h1>
+      <p class="hero-desc" data-i18n="hero.desc">Building beautiful iOS apps from Japan. Turning ideas into pixels and code.</p>
+      <div class="hero-btns">
+        <a href="#apps" class="btn btn-primary" data-i18n="hero.cta">View My Work</a>
+        <a href="#contact" class="btn btn-ghost" data-i18n="hero.contact">Get in Touch</a>
       </div>
-      <h1 class="glitch-text" data-text="ZJP">ZJP</h1>
-      <p class="typing-text" data-i18n="hero.subtitle">iOS Developer & Creator</p>
-      <div class="hero-badges">
-        <span class="nes-badge"><span class="is-primary">iOS</span></span>
-        <span class="nes-badge"><span class="is-success">Swift</span></span>
-        <span class="nes-badge"><span class="is-warning">Pixel</span></span>
-      </div>
-      <br>
-      <a href="#apps" class="nes-btn is-primary" data-i18n="hero.cta">Check My Apps</a>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="section">
+  <!-- About -->
+  <section id="about" class="section about">
     <div class="container">
-      <h2 class="section-title">
-        <span class="title-icon">&starf;</span>
-        <span data-i18n="about.title">About Me</span>
-        <span class="title-icon">&starf;</span>
-      </h2>
-      <div class="nes-container is-dark with-title">
-        <p class="title" data-i18n="about.cardTitle">Status</p>
-        <div class="about-content">
-          <div class="stat-row">
-            <span data-i18n="about.location">Location</span>
-            <span>: Japan <i class="nes-icon is-small heart"></i></span>
-          </div>
-          <div class="stat-row">
-            <span data-i18n="about.role">Role</span>
-            <span>: iOS Developer</span>
-          </div>
-          <div class="stat-row">
-            <span data-i18n="about.hobby">Hobby</span>
-            <span>: Gaming & Coding</span>
-          </div>
-          <br>
-          <div class="skill-bars">
-            <div class="skill-item">
-              <span>Swift</span>
-              <progress class="nes-progress is-primary" value="85" max="100"></progress>
+      <p class="section-tag" data-i18n="about.tag">ABOUT</p>
+      <h2 class="section-title" data-i18n="about.title">About Me</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p data-i18n="about.bio">An iOS developer based in Japan, passionate about creating intuitive and beautiful mobile experiences. I build apps that people love to use every day.</p>
+          <div class="stats-row">
+            <div class="stat">
+              <span class="stat-num">4+</span>
+              <span class="stat-label" data-i18n="about.apps">Apps</span>
             </div>
-            <div class="skill-item">
-              <span>SwiftUI</span>
-              <progress class="nes-progress is-success" value="80" max="100"></progress>
+            <div class="stat">
+              <span class="stat-num">JP</span>
+              <span class="stat-label" data-i18n="about.based">Based</span>
             </div>
-            <div class="skill-item">
-              <span>Design</span>
-              <progress class="nes-progress is-warning" value="70" max="100"></progress>
-            </div>
-            <div class="skill-item">
-              <span data-i18n="about.creativity">Creativity</span>
-              <progress class="nes-progress is-error" value="95" max="100"></progress>
+            <div class="stat">
+              <span class="stat-num">iOS</span>
+              <span class="stat-label" data-i18n="about.focus">Focus</span>
             </div>
           </div>
+        </div>
+        <div class="skills-col">
+          <div class="skill-pill">Swift</div>
+          <div class="skill-pill">SwiftUI</div>
+          <div class="skill-pill">UIKit</div>
+          <div class="skill-pill">React Native</div>
+          <div class="skill-pill">Firebase</div>
+          <div class="skill-pill">Core Data</div>
+          <div class="skill-pill">CloudKit</div>
+          <div class="skill-pill">AI / ML</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Apps Section -->
-  <section id="apps" class="section">
+  <!-- Apps -->
+  <section id="apps" class="section apps">
     <div class="container">
-      <h2 class="section-title">
-        <span class="title-icon">&starf;</span>
-        <span data-i18n="apps.title">My Apps</span>
-        <span class="title-icon">&starf;</span>
-      </h2>
+      <p class="section-tag" data-i18n="apps.tag">WORK</p>
+      <h2 class="section-title" data-i18n="apps.title">My Apps</h2>
       <div class="apps-grid">
 
-        <!-- App 1: NumberFall -->
-        <div class="app-card nes-container is-dark">
-          <div class="app-icon pixel-icon">NF</div>
-          <h3>NumberFall</h3>
-          <p data-i18n="apps.nf.desc">A roguelike number puzzle game with RPG elements.</p>
-          <div class="app-badges">
-            <span class="nes-badge"><span class="is-primary">iOS</span></span>
-            <span class="nes-badge"><span class="is-success" data-i18n="apps.nf.status">Live</span></span>
+        <a href="apps/numberfall.html" class="app-card" data-tilt>
+          <div class="card-glow"></div>
+          <div class="card-content">
+            <span class="card-emoji">🎮</span>
+            <h3>NumberFall</h3>
+            <p data-i18n="apps.nf.desc">Roguelike number puzzle RPG game.</p>
+            <div class="card-footer">
+              <span class="card-tag live">Live</span>
+              <span class="card-arrow">→</span>
+            </div>
           </div>
-          <div class="app-links">
-            <a href="apps/numberfall.html" class="nes-btn is-primary btn-sm" data-i18n="apps.detail">Detail</a>
-            <a href="privacy/numberfall.html" class="nes-btn btn-sm" data-i18n="apps.privacy">Privacy</a>
-          </div>
-        </div>
+        </a>
 
-        <!-- App 2: Kakeibo -->
-        <div class="app-card nes-container is-dark">
-          <div class="app-icon pixel-icon icon-kakeibo">&#x5186;</div>
-          <h3 data-i18n="apps.kakeibo.name">Kakeibo</h3>
-          <p data-i18n="apps.kakeibo.desc">Smart household expense tracker with receipt scanning and iCloud sync.</p>
-          <div class="app-badges">
-            <span class="nes-badge"><span class="is-primary">iOS</span></span>
-            <span class="nes-badge"><span class="is-success" data-i18n="apps.kakeibo.status">Live</span></span>
+        <a href="apps/kakeibo.html" class="app-card" data-tilt>
+          <div class="card-glow glow-green"></div>
+          <div class="card-content">
+            <span class="card-emoji">💰</span>
+            <h3 data-i18n="apps.kakeibo.name">Kakeibo</h3>
+            <p data-i18n="apps.kakeibo.desc">Smart expense tracker with receipt scan & iCloud.</p>
+            <div class="card-footer">
+              <span class="card-tag live">Live</span>
+              <span class="card-arrow">→</span>
+            </div>
           </div>
-          <div class="app-links">
-            <a href="apps/kakeibo.html" class="nes-btn is-primary btn-sm" data-i18n="apps.detail">Detail</a>
-            <a href="privacy/kakeibo.html" class="nes-btn btn-sm" data-i18n="apps.privacy">Privacy</a>
-          </div>
-        </div>
+        </a>
 
-        <!-- App 3: Shiftru -->
-        <div class="app-card nes-container is-dark">
-          <div class="app-icon pixel-icon icon-shiftru">&#x2630;</div>
-          <h3 data-i18n="apps.shiftru.name">Shiftru</h3>
-          <p data-i18n="apps.shiftru.desc">Shift management & salary calculator for part-time workers in Japan.</p>
-          <div class="app-badges">
-            <span class="nes-badge"><span class="is-primary">iOS</span></span>
-            <span class="nes-badge"><span class="is-success" data-i18n="apps.shiftru.status">Live</span></span>
+        <a href="apps/shiftru.html" class="app-card" data-tilt>
+          <div class="card-glow glow-pink"></div>
+          <div class="card-content">
+            <span class="card-emoji">📅</span>
+            <h3 data-i18n="apps.shiftru.name">Shiftru</h3>
+            <p data-i18n="apps.shiftru.desc">Shift & salary calculator for Japan workers.</p>
+            <div class="card-footer">
+              <span class="card-tag live">Live</span>
+              <span class="card-arrow">→</span>
+            </div>
           </div>
-          <div class="app-links">
-            <a href="apps/shiftru.html" class="nes-btn is-primary btn-sm" data-i18n="apps.detail">Detail</a>
-            <a href="privacy/shiftru.html" class="nes-btn btn-sm" data-i18n="apps.privacy">Privacy</a>
-          </div>
-        </div>
+        </a>
 
-        <!-- App 4: Kennel Pro -->
-        <div class="app-card nes-container is-dark">
-          <div class="app-icon pixel-icon icon-kennel">&#x1F436;</div>
-          <h3 data-i18n="apps.kennel.name">Breeder Note</h3>
-          <p data-i18n="apps.kennel.desc">All-in-one kennel management app for dog breeders in Japan.</p>
-          <div class="app-badges">
-            <span class="nes-badge"><span class="is-primary">iOS</span></span>
-            <span class="nes-badge"><span class="is-warning" data-i18n="apps.kennel.status">Dev</span></span>
+        <a href="apps/kennel.html" class="app-card" data-tilt>
+          <div class="card-glow glow-amber"></div>
+          <div class="card-content">
+            <span class="card-emoji">🐶</span>
+            <h3 data-i18n="apps.kennel.name">Breeder Note</h3>
+            <p data-i18n="apps.kennel.desc">All-in-one kennel management for breeders.</p>
+            <div class="card-footer">
+              <span class="card-tag dev">Dev</span>
+              <span class="card-arrow">→</span>
+            </div>
           </div>
-          <div class="app-links">
-            <a href="apps/kennel.html" class="nes-btn is-primary btn-sm" data-i18n="apps.detail">Detail</a>
-            <a href="privacy/kennel.html" class="nes-btn btn-sm" data-i18n="apps.privacy">Privacy</a>
-          </div>
-        </div>
+        </a>
 
-        <!-- App 5: Coming Soon Placeholder -->
-        <div class="app-card nes-container is-dark">
-          <div class="app-icon pixel-icon">??</div>
-          <h3 data-i18n="apps.app5.name">Coming Soon</h3>
-          <p data-i18n="apps.app5.desc">A new app is being forged in the pixel furnace...</p>
-          <div class="app-badges">
-            <span class="nes-badge"><span class="is-warning" data-i18n="apps.app5.status">Dev</span></span>
-          </div>
-          <div class="app-links">
-            <button class="nes-btn is-disabled btn-sm" data-i18n="apps.soon">Stay Tuned</button>
+        <div class="app-card app-card-coming">
+          <div class="card-content">
+            <span class="card-emoji">✨</span>
+            <h3 data-i18n="apps.app5.name">Coming Soon</h3>
+            <p data-i18n="apps.app5.desc">Something new is brewing...</p>
           </div>
         </div>
 
@@ -184,40 +158,35 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="section">
-    <div class="container">
-      <h2 class="section-title">
-        <span class="title-icon">&starf;</span>
-        <span data-i18n="contact.title">Contact</span>
-        <span class="title-icon">&starf;</span>
-      </h2>
-      <div class="nes-container is-dark is-centered">
-        <p data-i18n="contact.text">Want to reach out? Send me a message!</p>
-        <br>
-        <div class="contact-links">
-          <a href="mailto:zjp@zjp73.com" class="nes-btn is-primary">
-            <span data-i18n="contact.email">Email</span>
-          </a>
-          <a href="https://github.com/" class="nes-btn" target="_blank" rel="noopener">
-            GitHub
-          </a>
-          <a href="https://twitter.com/" class="nes-btn is-success" target="_blank" rel="noopener">
-            X / Twitter
-          </a>
+  <!-- Contact -->
+  <section id="contact" class="section contact">
+    <div class="container contact-inner">
+      <p class="section-tag" data-i18n="contact.tag">CONTACT</p>
+      <h2 class="section-title-lg" data-i18n="contact.title">Let's Connect</h2>
+      <p class="contact-desc" data-i18n="contact.desc">Have a project in mind? Let's talk.</p>
+      <div class="contact-btns">
+        <a href="mailto:zjp@zjp73.com" class="btn btn-primary btn-lg">zjp@zjp73.com</a>
+        <div class="social-links">
+          <a href="https://github.com/Zhao73" class="social-link" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://twitter.com/" class="social-link" target="_blank" rel="noopener">X</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="pixel-footer">
+  <footer class="footer">
     <p>&copy; 2026 ZJP. <span data-i18n="footer.rights">All rights reserved.</span></p>
-    <p class="footer-pixel">Made with <i class="nes-icon is-small heart"></i> & pixels</p>
   </footer>
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.170.0/build/three.module.js"
+    }
+  }
+  </script>
+  <script type="module" src="js/scene.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
