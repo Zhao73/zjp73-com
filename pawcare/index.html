@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PawCare | ペット健康管理・通院記録・ワクチン・費用メモ</title>
-  <meta name="description" content="PawCare は、犬猫の通院記録、ワクチン予定、体重推移、病院・費用メモ、検査レポート、写真、PDF を1匹ずつ整理できる iPhone・iPad 向けペット健康手帳アプリです。">
+  <meta name="description" content="PawCare は、犬猫の通院記録、ワクチン予定、体重推移、病院・費用メモ、検査レポート、写真、PDF をペットごとに整理できる iPhone・iPad 向け健康手帳アプリです。">
   <meta name="last-modified" content="2026-06-08">
-  <meta name="theme-color" content="#12332d">
+  <meta name="theme-color" content="#0f3a32">
   <link rel="icon" href="./assets/app-icon-180.png" type="image/png">
   <link rel="apple-touch-icon" href="./assets/app-icon-180.png">
   <link rel="stylesheet" href="./style.css">
@@ -15,11 +15,11 @@
   <header class="site-header">
     <a class="brand" href="./" aria-label="PawCare ホーム">
       <img class="brand-icon" src="./assets/app-icon-180.png" alt="" width="38" height="38">
-      <span>ペット健康管理 PawCare</span>
+      <span>PawCare</span>
     </a>
     <nav class="site-nav" aria-label="主要ナビゲーション">
-      <a href="#records">記録</a>
-      <a href="#premium">無料とPremium</a>
+      <a href="#free">無料で使えること</a>
+      <a href="#screens">画面</a>
       <a href="./support/">サポート</a>
       <a href="./privacy/">プライバシー</a>
     </nav>
@@ -28,44 +28,38 @@
   <main>
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="quiet-label">犬猫の健康手帳アプリ</p>
-        <h1 id="hero-title">病院で聞いたことを、あとから迷わず見返せる。</h1>
-        <p class="lead">PawCare は、通院記録、ワクチン予定、体重、病院・費用メモ、検査レポートをペットごとに整理するための iPhone・iPad アプリです。</p>
-        <div class="action-row">
-          <a class="button primary" href="#records">実際の画面を見る</a>
+        <p class="eyebrow">ペット健康手帳アプリ</p>
+        <h1 id="hero-title">通院記録も、ワクチン予定も、すぐ見返せる。</h1>
+        <p class="lead">PawCare は、犬猫の健康記録を1匹ずつ整理するための iPhone・iPad アプリです。病院で聞いたこと、検査レポート、体重、費用メモをまとめて残せます。</p>
+        <div class="button-row">
+          <a class="button primary" href="#screens">実際の画面を見る</a>
           <a class="button secondary" href="./support/">使い方を確認</a>
         </div>
-        <div class="trust-row" aria-label="PawCare の特徴">
-          <span>無料で1匹目から</span>
-          <span>ログイン不要</span>
-          <span>医療判断なし</span>
-        </div>
+        <ul class="hero-points" aria-label="PawCare の特徴">
+          <li>1匹目は無料で健康手帳を作成</li>
+          <li>ログインなしで開始</li>
+          <li>診断や治療判断は行いません</li>
+        </ul>
       </div>
 
-      <div class="hero-visual" aria-label="PawCare のホーム画面と健康手帳カード">
-        <div class="care-card care-card-top">
-          <span>今日のケア</span>
-          <strong>ワクチン予定</strong>
-          <small>6月12日 9:00</small>
-        </div>
-        <figure class="phone-frame">
-          <img src="./assets/iphone-home.jpg" alt="PawCare の iPhone ホーム画面。今日のタスク、体重推移、ワクチン予定が表示されています。" width="690" height="1500" fetchpriority="high">
+      <div class="hero-media" aria-label="PawCare のホーム画面">
+        <figure class="device-frame">
+          <img src="./assets/iphone-home.jpg" alt="PawCare のホーム画面。今日のタスク、体重推移、ワクチン予定が表示されています。" width="690" height="1500" fetchpriority="high">
         </figure>
-        <div class="care-card care-card-bottom">
-          <span>体重メモ</span>
-          <strong>4.2kg</strong>
-          <small>前回比 +0.1kg</small>
+        <div class="summary-card">
+          <span>今日の予定</span>
+          <strong>ワクチン 9:00</strong>
         </div>
       </div>
     </section>
 
-    <section id="premium" class="boundary-section" aria-label="無料機能と Premium 機能">
-      <div class="section-heading">
-        <p class="quiet-label">Free / Premium</p>
-        <h2>無料で始めて、必要なときだけ増やす。</h2>
-        <p>PawCare は購入しなくても健康手帳として使えます。Premium は複数ペット、OCR、PDF 出力など、記録作業を速くする追加機能です。</p>
+    <section id="free" class="split-section" aria-label="無料機能と Premium 機能">
+      <div class="section-copy">
+        <p class="eyebrow">Free / Premium</p>
+        <h2>無料で始めて、必要な機能だけ追加。</h2>
+        <p>PawCare は購入しなくても健康手帳として使えます。Premium は、複数ペット、OCR、PDF 出力などを増やすためのオプションです。</p>
       </div>
-      <div class="boundary-grid">
+      <div class="compare-table">
         <article>
           <h3>無料でできること</h3>
           <ul>
@@ -87,51 +81,36 @@
       </div>
     </section>
 
-    <section id="records" class="records-section" aria-label="実際のアプリ画面">
-      <div class="section-heading">
-        <p class="quiet-label">Records</p>
-        <h2>通院、検査、処方、予定を同じ流れで残す。</h2>
-        <p>紙、写真、PDF、記憶に分かれていた情報を、ペットごとの時系列に戻します。</p>
+    <section id="screens" class="screens-section" aria-label="実際のアプリ画面">
+      <div class="section-copy">
+        <p class="eyebrow">Screens</p>
+        <h2>よく使う画面を、実際のスクリーンショットで確認。</h2>
+        <p>通院後に記録する、予定を確認する、検査レポートを探す。毎日の使い方が分かる画面を並べました。</p>
       </div>
       <div class="screen-grid">
         <article class="screen-card">
-          <figure class="phone-frame compact">
-            <img src="./assets/iphone-records.jpg" alt="通院記録と検査レポートを保存する PawCare の実画面" width="690" height="1500" decoding="async">
-          </figure>
-          <div>
-            <span>Medical records</span>
-            <h3>記録を種類別に探す</h3>
-            <p>通院、検査、ワクチン、処方をフィルターして、必要な情報だけ確認できます。</p>
-          </div>
+          <img src="./assets/iphone-records.jpg" alt="PawCare の記録画面。通院記録と検査レポートが並んでいます。" width="690" height="1500" decoding="async">
+          <h3>通院記録</h3>
+          <p>症状、検査、処方、次回予定を同じ記録にまとめます。</p>
         </article>
         <article class="screen-card">
-          <figure class="phone-frame compact">
-            <img src="./assets/iphone-smart.jpg" alt="OCR とスマート整理を使う PawCare の実画面" width="690" height="1500" decoding="async">
-          </figure>
-          <div>
-            <span>Document assist</span>
-            <h3>読み取りは下書きとして使う</h3>
-            <p>検査表や書類から文字を読み取り、保存前に内容を確認できます。</p>
-          </div>
+          <img src="./assets/iphone-smart.jpg" alt="PawCare のスマート整理画面。OCR と下書き確認を行います。" width="690" height="1500" decoding="async">
+          <h3>書類整理</h3>
+          <p>検査表や書類の読み取り結果は、保存前に確認できます。</p>
         </article>
         <article class="screen-card">
-          <figure class="phone-frame compact">
-            <img src="./assets/iphone-premium.jpg" alt="PawCare Premium 機能を紹介する実画面" width="690" height="1500" decoding="async">
-          </figure>
-          <div>
-            <span>Export</span>
-            <h3>共有しやすい形にまとめる</h3>
-            <p>通院履歴や添付資料を、家族や病院に見せやすい形へ整理します。</p>
-          </div>
+          <img src="./assets/iphone-premium.jpg" alt="PawCare Premium 機能を紹介する実画面" width="690" height="1500" decoding="async">
+          <h3>共有・出力</h3>
+          <p>必要な記録を家族や病院に見せやすい形へ整理します。</p>
         </article>
       </div>
     </section>
 
     <section class="ipad-section" aria-label="iPad 対応">
-      <div class="section-heading">
-        <p class="quiet-label">iPad ready</p>
-        <h2>大きい画面では、家族への説明がしやすい。</h2>
-        <p>iPad では最近の記録、検査レポート、今日のタスクを広く表示できます。通院前の確認や家族との共有に向いています。</p>
+      <div class="section-copy">
+        <p class="eyebrow">iPad</p>
+        <h2>家族と見返すときは、大きい画面で。</h2>
+        <p>iPad では、最近の記録、検査レポート、今日のタスクを広い画面で確認できます。</p>
       </div>
       <figure class="tablet-frame">
         <img src="./assets/ipad-records.jpg" alt="PawCare の iPad 通院記録画面。検査レポートと履歴を広い画面で確認できます。" width="1275" height="1700" decoding="async">
@@ -140,11 +119,11 @@
 
     <section class="safety-section">
       <div>
-        <p class="quiet-label">Safety</p>
+        <p class="eyebrow">Safety</p>
         <h2>医療アプリではなく、記録アプリです。</h2>
-        <p>PawCare は、飼い主が獣医師との会話や日々の変化を忘れないための個人用ノートです。症状の評価、診断、治療、投薬量の判断、緊急度判定は行いません。</p>
+        <p>PawCare は、飼い主が記録を整理するための個人用ノートです。症状の評価、診断、治療、投薬量の判断、緊急度判定は行いません。</p>
       </div>
-      <div class="link-cards">
+      <div class="link-list">
         <a href="./support/">サポート</a>
         <a href="./privacy/">プライバシーポリシー</a>
         <a href="./terms/">利用規約</a>
@@ -152,22 +131,9 @@
     </section>
   </main>
 
-  <a class="mobile-sticky-cta" href="#records" data-visible="false">画面を見る</a>
-
   <footer class="site-footer">
     <p>© 2026 ZJP. PawCare public website.</p>
     <p><a href="mailto:support@zjp73.com">support@zjp73.com</a></p>
   </footer>
-  <script>
-    (() => {
-      const cta = document.querySelector(".mobile-sticky-cta");
-      if (!cta) return;
-      const update = () => {
-        cta.dataset.visible = window.scrollY > Math.min(560, window.innerHeight * 0.72) ? "true" : "false";
-      };
-      update();
-      window.addEventListener("scroll", update, { passive: true });
-    })();
-  </script>
 </body>
 </html>
