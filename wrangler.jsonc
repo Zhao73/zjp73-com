@@ -1,0 +1,9 @@
+{
+    "name": "zjp73-com",
+    "main": "worker.js",
+    "compatibility_date": "2026-07-02",
+    "assets": {
+          "directory": ".",
+          "binding": "ASSETS"
+    }
+}
